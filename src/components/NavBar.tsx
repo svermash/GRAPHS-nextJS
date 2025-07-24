@@ -1,11 +1,13 @@
-'use client'; // 👈 needed if you use hooks in a client component
+'use client'; // Needed for hooks
 
 import { useState } from 'react';
-import Link from 'next/link'; // Next.js link
+import { usePathname } from "next/navigation";
+import Link from 'next/link';
 
 export default function NavBar() {
   const [menuOpen, setMenuOpen] = useState(false);
   const toggleMenu = () => setMenuOpen(!menuOpen);
+  const pathname = usePathname();
 
   return (
     <div className="Nav-wrap">
@@ -30,22 +32,38 @@ export default function NavBar() {
         <div className={`off-screen-menu ${menuOpen ? 'active' : ''}`}>
           <ul className="nav-ul">
             <li>
-              <Link href="/" onClick={() => setMenuOpen(false)}>
+              <Link
+                href="/"
+                className={pathname === "/" ? "active-link" : ""}
+                onClick={() => setMenuOpen(false)}
+              >
                 HOME
               </Link>
             </li>
             <li>
-              <Link href="/about" onClick={() => setMenuOpen(false)}>
+              <Link
+                href="/about"
+                className={pathname === "/about" ? "active-link" : ""}
+                onClick={() => setMenuOpen(false)}
+              >
                 ABOUT
               </Link>
             </li>
             <li>
-              <Link href="/contact" onClick={() => setMenuOpen(false)}>
+              <Link
+                href="/contact"
+                className={pathname === "/contact" ? "active-link" : ""}
+                onClick={() => setMenuOpen(false)}
+              >
                 CONTACT
               </Link>
             </li>
             <li>
-              <Link href="/details" onClick={() => setMenuOpen(false)}>
+              <Link
+                href="/details"
+                className={pathname === "/details" ? "active-link" : ""}
+                onClick={() => setMenuOpen(false)}
+              >
                 DETAILS
               </Link>
             </li>
