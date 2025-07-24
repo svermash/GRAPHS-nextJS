@@ -1,0 +1,23 @@
+.whole-body {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.Tchart-box {
+  width: 90%;
+  height: 600px;
+  padding: 20px;
+  border-radius: 8px; /* Slightly rounded corners look better on mobile */
+  border: solid 2px rgba(0, 0, 0, 1);
+  background: rgb(144, 147, 189);
+  margin: 0 auto 20px auto; /* Center horizontally with auto margins */
+  box-sizing: border-box;
+}
+@media (max-width: 600px) {
+  .Tchart-box {
+    height: 650px;
+    width: 90%;
+    max-width: 400px;
+    padding: 10px;
+  }
+}
